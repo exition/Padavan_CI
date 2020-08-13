@@ -16,7 +16,7 @@ env:
   REPOSITORY_URL: https://github.com/chongshengB/rt-n56u.git
   TOOLCHAIN_URL: https://github.com/hanwckf/padavan-toolchain/releases/download/v1.1/mipsel-linux-uclibc.tar.xz
   WORK_PATH: /opt/rt-n56u
-  TARGET_NAME: PS1218
+  TARGET_NAME: PSG1218
   FIRMWARE_VERSION: 20200813
   FIRMWARE_DATEPREFIX: $(date +"%Y%m%d")
   FIRMWARE_AUTHOR: exition
