@@ -16,7 +16,7 @@ env:
   REPOSITORY_URL: https://github.com/chongshengB/rt-n56u.git
   TOOLCHAIN_URL: https://github.com/hanwckf/padavan-toolchain/releases/download/v1.1/mipsel-linux-uclibc.tar.xz
   WORK_PATH: /opt/rt-n56u
-  TARGET_NAME: PSG1218
+  TARGET_NAME: MAC2600R
   FIRMWARE_VERSION: 20200813
   FIRMWARE_DATEPREFIX: $(date +"%Y%m%d")
   FIRMWARE_AUTHOR: exition
@@ -65,6 +65,8 @@ jobs:
         cp -f ssp/defaults.c $WORK_PATH/trunk/user/shared
         cp -f ssp/variables.c $WORK_PATH//trunk/user/httpd
         cp -f ssp/Shadowsocks.asp $WORK_PATH/trunk/user/www/n56u_ribbon_fixed
+        cp -rf type/MAC2600R $WORK_PATH/trunk/configs/boards
+        cp -rf type/MAC2600R.config $WORK_PATH/trunk/configs/templates
         cd $WORK_PATH/trunk/user/shared
         sed -i "s#https://cdn.jsdelivr.net/gh/Padavan_CI/ssp/trojan#https://cdn.jsdelivr.net/gh/${BUILD_OWNER}/Padavan_CI/ssp/trojan#g" ./defaults.c
         sed -i "s#https://cdn.jsdelivr.net/gh/Padavan_CI/ssp/v2ray#https://cdn.jsdelivr.net/gh/${BUILD_OWNER}/Padavan_CI/ssp/v2ray#g" ./defaults.c
