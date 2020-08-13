@@ -13,17 +13,17 @@ on:
   watch:
     types: [started]
 env:
-  REPOSITORY_URL: https://github.com/chongshengB/rt-n56u.git
+  REPOSITORY_URL: https://github.com/exition/rt-n56u.git
   TOOLCHAIN_URL: https://github.com/hanwckf/padavan-toolchain/releases/download/v1.1/mipsel-linux-uclibc.tar.xz
   WORK_PATH: /opt/rt-n56u
-  TARGET_NAME: PSG1218
-  FIRMWARE_VERSION: 20200619
+  TARGET_NAME: MAC2600R
+  FIRMWARE_VERSION: 20200813
   FIRMWARE_DATEPREFIX: $(date +"%Y%m%d")
-  FIRMWARE_AUTHOR: chongshengB
+  FIRMWARE_AUTHOR: exition
   FIRMWARE_PATH: /opt/firmwares
   APPLY_RAINBOWTHEME: false
   RECOVERY_SSPBINREMOTEDOWNLOAD: true
-  BUILD_OWNER: vb1980
+  BUILD_OWNER: exition
   UPLOAD_COWTRANSFER: true
   UPLOAD_WETRANSFER: false
 jobs:
@@ -108,7 +108,7 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_FRPC=n" >> .config #内网穿透FRPC
         echo "CONFIG_FIRMWARE_INCLUDE_FRPS=n" >> .config #内网穿透FRPS
         echo "CONFIG_FIRMWARE_INCLUDE_TUNSAFE=n" >> .config #TUNSAFE
-        echo "CONFIG_FIRMWARE_INCLUDE_ALIDDNS=n" >> .config #阿里DDNS
+        echo "CONFIG_FIRMWARE_INCLUDE_ALIDDNS=y" >> .config #阿里DDNS
         echo "CONFIG_FIRMWARE_INCLUDE_SMARTDNS=n" >> .config #smartdns
         echo "CONFIG_FIRMWARE_INCLUDE_SMARTDNSBIN=n" >> .config #smartdns二进制文件
         echo "CONFIG_FIRMWARE_INCLUDE_V2RAY=n" >> .config #集成v2ray执行文件（3.8M左右)，如果不集成，会从网上下载下来执行，不影响正常使用
