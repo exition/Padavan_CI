@@ -17,12 +17,13 @@ env:
   TOOLCHAIN_URL: https://github.com/hanwckf/padavan-toolchain/releases/download/v1.1/mipsel-linux-uclibc.tar.xz
   WORK_PATH: /opt/rt-n56u
   TARGET_NAME: MAC2600R
+  TIME_ZONE: Asia/Shanghai
   FIRMWARE_VERSION: 20200813
   FIRMWARE_DATEPREFIX: $(date +"%Y%m%d")
   FIRMWARE_AUTHOR: exition
   FIRMWARE_PATH: /opt/firmwares
   APPLY_RAINBOWTHEME: false
-  RECOVERY_SSPBINREMOTEDOWNLOAD: true
+  RECOVERY_SSPBINREMOTEDOWNLOAD: false
   BUILD_OWNER: exition
   UPLOAD_COWTRANSFER: true
   UPLOAD_WETRANSFER: false
@@ -42,6 +43,7 @@ jobs:
         sudo apt-get -y install unzip libtool-bin curl cmake gperf gawk flex bison nano xxd fakeroot \
         cpio git python-docutils gettext automake autopoint texinfo build-essential help2man \
         pkg-config zlib1g-dev libgmp3-dev libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev wget
+        sudo timedatectl set-timezone "$TIME_ZONE"
     - name: Clone source code
       run: |
         git clone --depth=1 $REPOSITORY_URL $WORK_PATH
