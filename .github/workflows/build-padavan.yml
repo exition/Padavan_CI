@@ -23,7 +23,7 @@ env:
   FIRMWARE_AUTHOR: exition
   FIRMWARE_PATH: /opt/firmwares
   APPLY_RAINBOWTHEME: false
-  RECOVERY_SSPBINREMOTEDOWNLOAD: false
+  RECOVERY_SSPBINREMOTEDOWNLOAD: true
   BUILD_OWNER: exition
   UPLOAD_COWTRANSFER: true
   UPLOAD_WETRANSFER: false
@@ -68,7 +68,7 @@ jobs:
         cp -f ssp/variables.c $WORK_PATH//trunk/user/httpd
         cp -f ssp/Shadowsocks.asp $WORK_PATH/trunk/user/www/n56u_ribbon_fixed
         cp -rf type/MAC2600R $WORK_PATH/trunk/configs/boards
-        cp -rf type/MAC2600R.config $WORK_PATH/trunk/configs/templates
+        cp -f type/MAC2600R.config $WORK_PATH/trunk/configs/templates
         cd $WORK_PATH/trunk/user/shared
         sed -i "s#https://cdn.jsdelivr.net/gh/Padavan_CI/ssp/trojan#https://cdn.jsdelivr.net/gh/${BUILD_OWNER}/Padavan_CI/ssp/trojan#g" ./defaults.c
         sed -i "s#https://cdn.jsdelivr.net/gh/Padavan_CI/ssp/v2ray#https://cdn.jsdelivr.net/gh/${BUILD_OWNER}/Padavan_CI/ssp/v2ray#g" ./defaults.c
