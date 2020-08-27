@@ -70,10 +70,10 @@ jobs:
         cp -rf type/MAC2600R $WORK_PATH/trunk/configs/boards
         cp -f type/MAC2600R.config $WORK_PATH/trunk/configs/templates
         cd $WORK_PATH/trunk/user/shared
-        sed -i "s#https://cdn.jsdelivr.net/gh/Padavan_CI/ssp/trojan#https://cdn.jsdelivr.net/gh/${BUILD_OWNER}/Padavan_CI/ssp/trojan#g" ./defaults.c
-        sed -i "s#https://cdn.jsdelivr.net/gh/Padavan_CI/ssp/v2ray#https://cdn.jsdelivr.net/gh/${BUILD_OWNER}/Padavan_CI/ssp/v2ray#g" ./defaults.c
+        sed -i "s#https://cdn.jsdelivr.net/gh/Padavan_CI/ssp/trojan#https://cdn.jsdelivr.net/gh/${BUILD_OWNER}/Padavan_CI_MAC2600R/ssp/trojan#g" ./defaults.c
+        sed -i "s#https://cdn.jsdelivr.net/gh/Padavan_CI/ssp/v2ray#https://cdn.jsdelivr.net/gh/${BUILD_OWNER}/Padavan_CI_MAC2600R/ssp/v2ray#g" ./defaults.c
         #cd $WORK_PATH/trunk/user/unblockmusic/scripts
-        #sed -i "s#https://cdn.jsdelivr.net/gh/chongshengB/rt-n56u/trunk/user/unblockmusic/UnblockNeteaseMusic#https://cdn.jsdelivr.net/gh/${BUILD_OWNER}/Padavan_CI/unblockmusic/UnblockNeteaseMusic#g" ./unblockmusic.sh
+        #sed -i "s#https://cdn.jsdelivr.net/gh/chongshengB/rt-n56u/trunk/user/unblockmusic/UnblockNeteaseMusic#https://cdn.jsdelivr.net/gh/${BUILD_OWNER}/Padavan_CI_MAC2600R/unblockmusic/UnblockNeteaseMusic#g" ./unblockmusic.sh
     - name: Custom config
       run: |
         cd $WORK_PATH/trunk
