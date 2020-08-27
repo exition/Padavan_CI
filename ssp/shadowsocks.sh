@@ -93,7 +93,7 @@ local type=$stype
                tj_bin="/tmp/trojan"
             else
               # curl -k -s -o /tmp/trojan --connect-timeout 10 --retry 3 $trojan_link
-	       wget  -O /tmp/trojan -c 3 $trojan_link 
+	       wget  -O /tmp/trojan -c  $trojan_link 
                  if [ -s "/tmp/trojan" ] && [ `grep -c "404 Not Found" /tmp/trojan` == '0' ] ; then
                     logger -t "SS" "trojan二进制文件下载成功"
                     chmod -R 777 /tmp/trojan
@@ -130,7 +130,7 @@ local type=$stype
             			v2_bin="/tmp/v2ray"
 			else
 			        # curl -k -s -o /tmp/v2ray --connect-timeout 10 --retry 3 $v2_link
-				 wget  -O /tmp/v2ray -c 3 $v2_link 
+				 wget  -O /tmp/v2ray -c  $v2_link 
    				 if [ -s "/tmp/v2ray" ] && [ `grep -c "404 Not Found" /tmp/v2ray` == '0' ] ; then
      		  			 logger -t "SS" "v2ray二进制文件下载成功"
      		 			  chmod -R 777 /tmp/v2ray
