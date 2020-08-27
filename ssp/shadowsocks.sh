@@ -120,7 +120,7 @@ local type=$stype
 		;;
 	v2ray)
 		v2_bin="/usr/bin/v2ray"
-		 logger -t "SS" $v2_link
+		# logger -t "SS" $v2_link
 		if [ ! -f "$v2_bin" ]; then
 		if [ ! -f "/tmp/v2ray" ]; then
 			if [ $v2_local_enable == "1" ] && [ -s $v2_local ] ; then
