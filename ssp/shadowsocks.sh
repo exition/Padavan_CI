@@ -119,29 +119,30 @@ local type=$stype
 		;;
 	v2ray)
 		v2_bin="/usr/bin/v2ray"
+		 logger -t "SS" $v2_link
 		if [ ! -f "$v2_bin" ]; then
-		if [ ! -f "/tmp/v2ray" ];then
+		if [ ! -f "/tmp/v2ray" ]; then
 			if [ $v2_local_enable == "1" ] && [ -s $v2_local ] ; then
-            logger -t "SS" "v2ray二进制文件复制成功"
-            cat $v2_local > /tmp/v2ray
-            chmod -R 777 /tmp/v2ray
-            v2_bin="/tmp/v2ray"
-else
-    curl -k -s -o /tmp/v2ray --connect-timeout 10 --retry 3 $v2_link
-    if [ -s "/tmp/v2ray" ] && [ `grep -c "404 Not Found" /tmp/v2ray` == '0' ] ; then
-        logger -t "SS" "v2ray二进制文件下载成功"
-        chmod -R 777 /tmp/v2ray
-        v2_bin="/tmp/v2ray"
-    else
-        logger -t "SS" "v2ray二进制文件下载失败，可能是地址失效或者网络异常！"
-        rm -f /tmp/v2ray
-        nvram set ss_enable=0
-        ssp_close
-    fi
-fi
+           			 logger -t "SS" "v2ray二进制文件复制成功"
+            			cat $v2_local > /tmp/v2ray
+            			chmod -R 777 /tmp/v2ray
+            			v2_bin="/tmp/v2ray"
 			else
-			v2_bin="/tmp/v2ray"
+				 curl -k -s -o /tmp/v2ray --connect-timeout 10 --retry 3 $v2_link
+   				 if [ -s "/tmp/v2ray" ] && [ `grep -c "404 Not Found" /tmp/v2ray` == '0' ] ; then
+     		  			 logger -t "SS" "v2ray二进制文件下载成功"
+     		 			  chmod -R 777 /tmp/v2ray
+     		 		          v2_bin="/tmp/v2ray"
+   				 else
+    				      logger -t "SS" "v2ray二进制文件下载失败，可能是地址失效或者网络异常！"
+     				      rm -f /tmp/v2ray
+     				     nvram set ss_enable=0
+     				     ssp_close
+   				 fi
 			fi
+		else
+			v2_bin="/tmp/v2ray"
+		fi
 		fi
 		v2ray_enable=1
 		if [ "$2" = "1" ]; then
